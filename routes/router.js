@@ -7,9 +7,10 @@ const moment = require ("moment");
 
 
 var imgconfig = multer.diskStorage({
-    destination:(req,file,callback)=>{
+    destination:(req, file, callback)=>{
         callback(null,"./uploads")
     },
+    
     filename:(req,file,callback)=>{
        callback(null, `image-${Date.now()}.${file.originalname}`) 
     }
@@ -76,7 +77,7 @@ router.get("/getdata", (req,res)=>{
 router.delete("/:id",(req,res) => {
     const {id} = req.params;
    try {
-    conn.query(`DELETE FROM usersdata WHERE id ='${id}'`,(err,result)=>{
+    conn.query(`DELETE FROM usersdata WHERE id ='${id}'`,(err,result) => {
         if(err){
             console.log("error")
         }else{
