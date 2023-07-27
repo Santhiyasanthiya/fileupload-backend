@@ -39,7 +39,6 @@ if(!fname || !filename){
     res.status(422).json({status:422,message:"fill all the details"})
 }
 
-
 try {
     
     let date = moment(new Date()).format("YYYY-MM-DD hh:mm:ss");
